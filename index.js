@@ -6,7 +6,8 @@ app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
 	var answer = 3;
-  response.send('answer');
+	answer = answer.toString();
+  response.send(answer);
 })
 
 app.listen(app.get('port'), function() {
