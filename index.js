@@ -8,7 +8,7 @@ app.get('/calc1', function(request, response) {
   var a=parseInt(request.param('a'));
   var b=parseInt(request.param('b'));
   var operator=request.param('operator');
-  var answer = "Answer = "+calculator(a,b,operator);
+  var answer = "Answer is "+calculator(a,b,operator);
   response.send(answer);
 });
 app.get('/calc2', function (req, res) {
