@@ -9,7 +9,6 @@ app.get('/', function(request, response) {
   var b=parseInt(request.param('b'));
   var operator=request.param('operator');
   var answer = calculator(a,b,operator);
-  answer = answer.toString();
   response.send(answer||"Answer");
 })
 
