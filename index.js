@@ -10,7 +10,7 @@ app.get('/', function(request, response) {
   var operator=request.param('operator');
   var answer = calculator(a,b,operator);
   answer = answer.toString();
-  response.send(answer);
+  response.send(answer||"Answer");
 })
 
 app.listen(app.get('port'), function() {
