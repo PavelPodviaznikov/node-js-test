@@ -4,6 +4,7 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser());
 app.get('/calc1', function(request, response) {
   var a=parseInt(request.param('a'));
   var b=parseInt(request.param('b'));
@@ -24,6 +25,25 @@ app.get('/calc2', function (req, res) {
 					'<br>'+
 					'<button type="submit">Calculate</button>'+
 				'</form>';
+	res.send(html);
+});
+app.post('/', function (req, res) {
+	var a = req.body.a;
+	var b = req.body.b;
+	var operator = req.body.operator;
+	var html = '<form action="/" method="post">'+
+					'a: '+
+					'<input type="text" name="a">'+
+					'<br>'+
+					'b: '+
+					'<input type="text" name="b">'+
+					'<br>'+
+					'operator: '+
+					'<input type="text" name="operator">'+
+					'<br>'+
+					'<button type="submit">Calculate</button>'+
+				'</form>'+
+				'ANSWER = '+calculator(parseInt(a),parseInt(b),operator);
 	res.send(html);
 });
 app.listen(app.get('port'), function() {
