@@ -10,7 +10,22 @@ app.get('/calc1', function(request, response) {
   var operator=request.param('operator');
   var answer = "Answer = "+calculator(a,b,operator);
   response.send(answer);
-})
+});
+app.get('/calc2', function (req, res) {
+	var html = '<form action="/" method="post">'+
+					'a: '+
+					'<input type="text" name="a">'+
+					'<br>'+
+					'b: '+
+					'<input type="text" name="b">'+
+					'<br>'+
+					'operator: '+
+					'<input type="text" name="operator">'+
+					'<br>'+
+					'<button type="submit">Calculate</button>'+
+				'</form>';
+	res.send(html);
+});
 
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
