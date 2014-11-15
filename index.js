@@ -44,7 +44,7 @@ app.post('/', function (req, res) {
 					'<button type="submit">Calculate</button>'+
 				'</form>'+
 				'ANSWER = '+calculator(parseInt(a),parseInt(b),operator);
-	res.send(html);
+	res.send("hello");
 });
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
